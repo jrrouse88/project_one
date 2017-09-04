@@ -1,3 +1,32 @@
-body {
-    background: chocolate;
+#container {
+    max-width: 950px;
+    max-height: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+}
+
+#left {
+    height: 600px;
+    width: 300px;
+}
+
+#middle {
+    background: black;
+    color: white;
+    height: 600px;
+    width: 300px;
+}
+
+#right {
+    height: 600px;
+    width: 300px;
+}
+
+h1 {
+    text-align: center;
+}
+
+.hidden-cards {
+    display: none;
 }
