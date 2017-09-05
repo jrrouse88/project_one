@@ -79,10 +79,21 @@ for (var i = 0; i < 10; i += 1) {
 }
 
 //splice responses in half and distribute to both players
-/*var $playerOneCards = $('#player-one-cards')
+var $playerOneCards = $('#player-one-cards')
 var $playerTwoCards = $('#player-two-cards')
-var $answer = $('<li>')
-responses.forEach(function() {
+//first half of responses goes to player one
+var cards1 = responses.splice(0, 5)
+//loop through and create list items for each answer
+cards1.forEach(function(i) {
+    var $answer = $('<li>')
     $playerOneCards.append($answer)
-    $    
-})*/
+    $answer.text(i)
+})
+//leftover responses go to player two
+var cards2 = responses
+//loop through and create list items for each answer
+cards2.forEach(function(i) {
+    var $answer = $('<li>')
+    $playerTwoCards.append($answer)
+    $answer.text(i)
+})
