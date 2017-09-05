@@ -38,7 +38,7 @@ var answers = [
     "It's a lot like inception, except it'll make sense.",
     "Tiny RIIIIIIIIICK!!!",
     "Pickle Riiiiiiiiiiick!!!",
-    "Scary Terry, the legally safe knock of ofan 80s horror character.",
+    "Scary Terry, the legally safe knock of of an 80s horror character.",
     "Garmanarnar.",
     "Schezuan sauce.",
     "Caaaaaan do.",
@@ -113,6 +113,7 @@ var game = {
     player1: 'NoobNoob',
     player2: 'Mr. Poopybutthole'
 }
+game.currentPlayer = game.player1
 function switchTurns() {
     if (game.currentPlayer === game.player1) {
         game.currentPlayer = game.player2
@@ -120,14 +121,25 @@ function switchTurns() {
         game.currentPlayer = game.player1
     }
 }
-switchTurns()
 
 //let player one see their cards and select which one to play
+var playerOneResponse = ''
+var playerTwoResponse = ''
 function pickOne() {
     if (game.currentPlayer === game.player1) {
         $playerOneCards.parent().removeClass('hidden-cards')
+        $playerTwoCards.parent().addClass('hidden-cards')
     } else {
         $playerTwoCards.parent().removeClass('hidden-cards')
+        $playerOneCards.parent().addClass('hidden-cards')
     }
 }
-pickOne()
+
+var $submit = $('input').on('click', function() {
+    playerOneResponse = $(this).parent().text()
+    $(this).parent().remove()
+    switchTurns()
+    pickOne()
+    playerTwoResponse = $(this).parent().text()
+    $(this).parent().remove()
+})
