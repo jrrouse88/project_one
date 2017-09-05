@@ -107,3 +107,27 @@ cards2.forEach(function(i) {
     $playerTwoCards.append($answer)
     $answer.prepend($sendIt)  
 })
+
+//set up turns to see which player is picking a card
+var game = {
+    player1: 'NoobNoob',
+    player2: 'Mr. Poopybutthole'
+}
+function switchTurns() {
+    if (game.currentPlayer === game.player1) {
+        game.currentPlayer = game.player2
+    } else {
+        game.currentPlayer = game.player1
+    }
+}
+switchTurns()
+
+//let player one see their cards and select which one to play
+function pickOne() {
+    if (game.currentPlayer === game.player1) {
+        $playerOneCards.parent().removeClass('hidden-cards')
+    } else {
+        $playerTwoCards.parent().removeClass('hidden-cards')
+    }
+}
+pickOne()
