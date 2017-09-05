@@ -1,3 +1,7 @@
+* {
+    list-style: none;
+}
+
 #container {
     max-width: 950px;
     max-height: 600px;

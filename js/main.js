@@ -1,23 +1,24 @@
 //create arrray of prompt and response cards
 var answer = '____'
+var awesomePoints = 0
 var blackCards = [
-    "Where do I find Dr. Bloom?",
+    "Where do I find Dr. Bloom? " + answer,
     "You don't agree to have a " + answer + " built inside you if your lifes going great.",
     "No, Jacob is your mother's lover. I watch them. Almost always dressed as " + answer + ".",
     "Gonorrhea can't see us if we don't " + answer + ".",
     "Showtime extreme in a world where man evolved from " + answer + ".",
     "You think you can control me with a " + answer + ".",
-    "Bobby Moynihan didn't get along with which SNL cast member?",
+    "Bobby Moynihan didn't get along with which SNL cast member? " + answer,
     "Welcome to your " + answer +", bitch!",
-    "What were Snuffles first words?",
+    "What were Snuffles first words? " + answer,
     "The guy teaches H.S. math. I didn't take him for a " + answer + ".",
     "They're just " + answer + ", Morty.",
     "It's a new machine. Detects " + answer + " all the way up your butt.",
     "Did you get those " + answer + " all the way up your butt?",
     "You want to stuff it under a mattress like " + answer + ".",
     "You " + answer + " Morty. Not very charismatic.",
-    "Look at that thing. It defies all logic. What is that thing?",
-    "How did Frank Policky die?",
+    "Look at that thing. It defies all logic. What is that thing? " + answer,
+    "How did Frank Policky die? " + answer,
     "What do you think of this flying vehicle Morty? I made it out of " + answer + ".",
     "I had to do it Morty. I made a " + answer + "."
 ]
@@ -67,6 +68,7 @@ function setBlack() {
     //remove index from array
     blackCards.splice(blackCards.indexOf(prompt), 1)
 }
+
 setBlack()
 
 //create array of responses
@@ -81,19 +83,27 @@ for (var i = 0; i < 10; i += 1) {
 //splice responses in half and distribute to both players
 var $playerOneCards = $('#player-one-cards')
 var $playerTwoCards = $('#player-two-cards')
+
 //first half of responses goes to player one
 var cards1 = responses.splice(0, 5)
-//loop through and create list items for each answer
+
+//loop through and create list items for each answer with input
 cards1.forEach(function(i) {
     var $answer = $('<li>')
-    $playerOneCards.append($answer)
+    var $sendIt = $('<input>').attr('type', 'checkbox')
     $answer.text(i)
+    $playerOneCards.append($answer)
+    $answer.prepend($sendIt)  
 })
+
 //leftover responses go to player two
 var cards2 = responses
-//loop through and create list items for each answer
+
+//loop through and create list items for each answer with input
 cards2.forEach(function(i) {
     var $answer = $('<li>')
-    $playerTwoCards.append($answer)
+    var $sendIt = $('<input>').attr('type', 'checkbox')
     $answer.text(i)
+    $playerTwoCards.append($answer)
+    $answer.prepend($sendIt)  
 })
