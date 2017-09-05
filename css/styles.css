@@ -33,8 +33,9 @@
     width: 300px;
 }
 
-h1 {
+h1, h2 {
     text-align: center;
+    margin: 0;
 }
 
 /* .hidden-cards {

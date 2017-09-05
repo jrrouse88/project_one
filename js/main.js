@@ -21,7 +21,7 @@ var blackCards = [
     "What do you think of this flying vehicle Morty? I made it out of " + answer + ".",
     "I had to do it Morty. I made a " + answer + "."
 ]
-var answer = [
+var answers = [
     "Nutrino bomb.",
     "Night time takes up half of all time.",
     "My little Morties.",
@@ -71,5 +71,8 @@ var prompt = shuffle(blackCards)
 document.querySelector('.prompt').innerText = prompt
 
 //shuffle white cards and distribute 5 to each player
+var responses = []
+for (var i = 0; i < 10; i += 1) {
+    responses.push(shuffle(answers))
+}
 
-//
