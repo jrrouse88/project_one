@@ -2,6 +2,16 @@
     max-width: 950px;
     max-height: 600px;
     margin: 0 auto;
+}
+
+#button {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 950px;
+}
+
+#board-container {
     display: flex;
     flex-direction: row;
 }
@@ -27,6 +37,6 @@ h1 {
     text-align: center;
 }
 
-.hidden-cards {
+/* .hidden-cards {
     display: none;
-}
+} */

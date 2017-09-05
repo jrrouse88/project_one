@@ -18,8 +18,8 @@ var blackCards = [
     "You " + answer + " Morty. Not very charismatic.",
     "Look at that thing. It defies all logic. What is that thing?",
     "How did Frank Policky die?",
-    "I had to do it Morty. I made a " + answer + ".",
-    "What do you think of this flying vehicle Morty? I made it out of " + answer + "."
+    "What do you think of this flying vehicle Morty? I made it out of " + answer + ".",
+    "I had to do it Morty. I made a " + answer + "."
 ]
 var answer = [
     "Nutrino bomb.",
@@ -62,9 +62,14 @@ function shuffle(array) {
         j = Math.floor(Math.random() * (i + 1))
         temp = array[i]
         array[i] = array[j]
-        array[j] = temp
+        temp = array[j]
         return temp
     }
 }
+//get random prompt from blackCards array and input into the DOM
+var prompt = shuffle(blackCards)
+document.querySelector('.prompt').innerText = prompt
 
-//shuffle black cards and return the value to the page
+//shuffle white cards and distribute 5 to each player
+
+//
