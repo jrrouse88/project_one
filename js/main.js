@@ -52,27 +52,37 @@ var answers = [
     "A mexican space armada with weapons made from tomatoes.",
 ]
 
-//shuffle cards with Fisher-Yates shuffle 'https://www.frankmitchell.org/2015/01/fisher-yates/'
+//select random index number to display in black card prompt
 function shuffle(array) {
-    var i = 0
-    var j = 0
-    var temp = null
-
-    for (i = array.length - 1; i > 0; i-= 1) {
-        j = Math.floor(Math.random() * (i + 1))
-        temp = array[i]
-        array[i] = array[j]
-        temp = array[j]
-        return temp
-    }
+   var i = Math.floor(Math.random() * array.length)
+   return array[i]
 }
-//get random prompt from blackCards array and input into the DOM
-var prompt = shuffle(blackCards)
-document.querySelector('.prompt').innerText = prompt
 
-//shuffle white cards and distribute 5 to each player
+//get random prompt from blackCards array and input into the DOM
+function setBlack() {
+    //select index
+    var prompt = shuffle(blackCards)
+    //display string in the DOM
+    document.querySelector('.prompt').innerText = prompt
+    //remove index from array
+    blackCards.splice(blackCards.indexOf(prompt), 1)
+}
+setBlack()
+
+//create array of responses
 var responses = []
 for (var i = 0; i < 10; i += 1) {
+    //select random index
     responses.push(shuffle(answers))
+    //remove index from the array
+    answers.splice(answers.indexOf(responses[i]), 1)
 }
 
+//splice responses in half and distribute to both players
+/*var $playerOneCards = $('#player-one-cards')
+var $playerTwoCards = $('#player-two-cards')
+var $answer = $('<li>')
+responses.forEach(function() {
+    $playerOneCards.append($answer)
+    $    
+})*/
