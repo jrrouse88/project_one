@@ -52,12 +52,6 @@ var answers = [
     "A mexican space armada with weapons made from tomatoes.",
 ]
 
-//player points set to zero
-var points1 = 0
-var points2 = 0
-$playerOnePoints = $('#player-one-points').text('Awesome Points: ' + Number(points1))
-$playerOnePoints = $('#player-two-points').text('Awesome Points: ' + Number(points2))
-
 //select random index number to display in black card prompt
 function shuffle(array) {
    var i = Math.floor(Math.random() * array.length)
@@ -144,7 +138,7 @@ function pickOne() {
     }
 }
 
-//click function allow players to pick an answer
+//click function allow players to pick an answer then switches turns
 var $submit = $('input').on('click', function() {
     if (game.currentPlayer === game.player1) {
         playerOneResponse = $(this).parent().text()
@@ -157,12 +151,29 @@ var $submit = $('input').on('click', function() {
     }
 })
 
-//click function to reveal answers and let a player pick, then switch turns
+//click function to reveal answers and let a player pick
 $( 'div button:nth-child(2)' ).on('click', pickOne)
 
-function revealResponses() {
-    if (playerOneResponse !== '' && playerTwoResponse !== '') {
-        answer = playerOneResponse
-        console.log(answer)
-    }
-}
+//reveal player responses
+$('div button:nth-child(3)').on('click', function() {
+    $('.prompt').fadeOut('slow')
+
+})
+
+//set new prompt in black card
+var $newPrompt = $('div button:nth-child(1)').on('click', setBlack)
+
+//player points set to zero
+var points1 = 0
+var points2 = 0
+$playerOnePoints = $('#player-one-points').text('Blitz and Chitz Tickets: ' + Number(points1))
+$playerTwoPoints = $('#player-two-points').text('Blitz and Chitz Tickets: ' + Number(points2))
+
+//allocate points
+var $givePoint1 = $('div button:nth-child(4)').on('click', function() {
+    $playerOnePoints = $('#player-one-points').text('Blips and Chitz Tickets: ' + Number(points1 += 1))
+})
+
+var $givePoint2 = $('div button:nth-child(5)').on('click', function() {
+    $playerTwoPoints = $('#player-two-points').text('Blips and Chitz Tickets: ' + Number(points2 += 1))
+})
