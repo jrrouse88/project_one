@@ -128,15 +128,17 @@ var playerOneResponse = ''
 var playerTwoResponse = ''
 function pickOne() {
     if (game.currentPlayer === game.player1) {
+        console.log(playerOneResponse)
         $playerOneCards.parent().removeClass('hidden-cards')
         setTimeout(function() {
             $playerOneCards.parent().addClass('hidden-cards')
-        }, 7000)
+        }, 2000)
     } else {
+        console.log(playerTwoResponse)
         $playerTwoCards.parent().removeClass('hidden-cards')
         setTimeout(function() {
             $playerTwoCards.parent().addClass('hidden-cards')
-        }, 7000)
+        }, 2000)
     }
 }
 
@@ -145,10 +147,12 @@ var $submit = $('input').on('click', function() {
     if (game.currentPlayer === game.player1) {
         playerOneResponse = $(this).parent().text()
         $(this).parent().remove()
+        console.log('playerOneResonse: ' + playerOneResponse)
         switchTurns()
     } else {
         playerTwoResponse = $(this).parent().text()
         $(this).parent().remove()
+        console.log('playerTwoResponse: ' + playerTwoResponse)
         switchTurns()
     }
 })
@@ -158,9 +162,10 @@ $( 'div button:nth-child(2)' ).on('click', pickOne)
 
 //reveal player responses
 $('div button:nth-child(3)').on('click', function() {
+    blackCards.answer = playerOneResponse
+    console.log('answer: ' + blackCards.answer)
     $('.prompt').fadeOut('slow')
     var $cue = $('.prompt').text()
-    blackCards.answer = playerOneResponse
     $('.prompt').fadeIn('slow')
 })
 
@@ -182,4 +187,14 @@ var $givePoint2 = $('div button:nth-child(5)').on('click', function() {
     $playerTwoPoints = $('#player-two-points').text('Blips and Chitz Tickets: ' + Number(points2 += 1))
 })
 
+//declare a winner
+
+
 //reset button
+var $reset = $('div button:nth-child(6)').on('click', function() {
+    location.reload()
+})
+    //reset blackCards array and setBlack
+    //deal new white cards
+    //empty points
+    //empty playerResponses
