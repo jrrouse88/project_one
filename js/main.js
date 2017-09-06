@@ -136,22 +136,25 @@ function pickOne() {
         setTimeout(function() {
             $playerOneCards.parent().addClass('hidden-cards')
         }, 7000)
-        switchTurns()
     } else {
         $playerTwoCards.parent().removeClass('hidden-cards')
         setTimeout(function() {
             $playerTwoCards.parent().addClass('hidden-cards')
         }, 7000)
-        switchTurns()
     }
 }
 
 //click function allow players to pick an answer
 var $submit = $('input').on('click', function() {
-    playerOneResponse = $(this).parent().text()
-    $(this).parent().remove()
-    playerTwoResponse = $(this).parent().text()
-    $(this).parent().remove()
+    if (game.currentPlayer === game.player1) {
+        playerOneResponse = $(this).parent().text()
+        $(this).parent().remove()
+        switchTurns()
+    } else {
+        playerTwoResponse = $(this).parent().text()
+        $(this).parent().remove()
+        switchTurns()
+    }
 })
 
 //click function to reveal answers and let a player pick, then switch turns
