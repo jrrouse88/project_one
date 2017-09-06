@@ -1,6 +1,5 @@
 //create arrray of prompt and response cards
 var answer = '____'
-var awesomePoints = 0
 var blackCards = [
     "Where do I find Dr. Bloom? " + answer,
     "You don't agree to have a " + answer + " built inside you if your lifes going great.",
@@ -52,6 +51,12 @@ var answers = [
     "A sex robot.",
     "A mexican space armada with weapons made from tomatoes.",
 ]
+
+//player points set to zero
+var points1 = 0
+var points2 = 0
+$playerOnePoints = $('#player-one-points').text('Awesome Points: ' + Number(points1))
+$playerOnePoints = $('#player-two-points').text('Awesome Points: ' + Number(points2))
 
 //select random index number to display in black card prompt
 function shuffle(array) {
