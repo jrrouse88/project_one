@@ -127,16 +127,18 @@ function switchTurns() {
     }
 }
 
-//let player one see their cards and select which one to play
+//let players see their cards and select which one to play
 var playerOneResponse = ''
 var playerTwoResponse = ''
 function pickOne() {
     if (game.currentPlayer === game.player1) {
         $playerOneCards.parent().removeClass('hidden-cards')
         $playerTwoCards.parent().addClass('hidden-cards')
+        switchTurns()
     } else {
         $playerTwoCards.parent().removeClass('hidden-cards')
         $playerOneCards.parent().addClass('hidden-cards')
+        switchTurns()
     }
 }
 
@@ -148,3 +150,5 @@ var $submit = $('input').on('click', function() {
     playerTwoResponse = $(this).parent().text()
     $(this).parent().remove()
 })
+
+$( 'div button:nth-child(2)' ).on('click', pickOne)

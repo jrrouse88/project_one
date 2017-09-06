@@ -8,11 +8,9 @@
     margin: 0 auto;
 }
 
-#button {
+#buttons {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 950px;
+    justify-content: space-around;
 }
 
 #board-container {
