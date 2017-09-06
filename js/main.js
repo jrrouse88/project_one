@@ -1,4 +1,4 @@
-//create arrray of prompt and response cards
+//create arrray of cue and response cards
 var answer = '____'
 var blackCards = [
     "Where do I find Dr. Bloom? " + answer,
@@ -58,14 +58,14 @@ function shuffle(array) {
    return array[i]
 }
 
-//get random prompt from blackCards array and input into the DOM
+//get random cue from blackCards array and input into the DOM
 function setBlack() {
     //select index
-    var prompt = shuffle(blackCards)
+    var cue = shuffle(blackCards)
     //display string in the DOM
-    document.querySelector('.prompt').innerText = prompt
+    document.querySelector('.prompt').innerText = cue
     //remove index from array
-    blackCards.splice(blackCards.indexOf(prompt), 1)
+    blackCards.splice(blackCards.indexOf(cue), 1)
 }
 
 setBlack()
@@ -157,11 +157,13 @@ $( 'div button:nth-child(2)' ).on('click', pickOne)
 //reveal player responses
 $('div button:nth-child(3)').on('click', function() {
     $('.prompt').fadeOut('slow')
-
+    var $cue = $('.prompt').text()
+    answer = playerOneResponse
+    $('.prompt').fadeIn('slow')
 })
 
 //set new prompt in black card
-var $newPrompt = $('div button:nth-child(1)').on('click', setBlack)
+var $newCue = $('div button:nth-child(1)').on('click', setBlack)
 
 //player points set to zero
 var points1 = 0
@@ -177,3 +179,5 @@ var $givePoint1 = $('div button:nth-child(4)').on('click', function() {
 var $givePoint2 = $('div button:nth-child(5)').on('click', function() {
     $playerTwoPoints = $('#player-two-points').text('Blips and Chitz Tickets: ' + Number(points2 += 1))
 })
+
+//reset button
