@@ -1,26 +1,28 @@
 //create arrray of cue and response cards
-var answer = '____'
-var blackCards = [
-    "Where do I find Dr. Bloom? " + answer,
-    "You don't agree to have a " + answer + " built inside you if your lifes going great.",
-    "No, Jacob is your mother's lover. I watch them. Almost always dressed as " + answer + ".",
-    "Gonorrhea can't see us if we don't " + answer + ".",
-    "Showtime extreme in a world where man evolved from " + answer + ".",
-    "You think you can control me with a " + answer + ".",
-    "Bobby Moynihan didn't get along with which SNL cast member? " + answer,
-    "Welcome to your " + answer +", bitch!",
-    "What were Snuffles first words? " + answer,
-    "The guy teaches H.S. math. I didn't take him for a " + answer + ".",
-    "They're just " + answer + ", Morty.",
-    "It's a new machine. Detects " + answer + " all the way up your butt.",
-    "Did you get those " + answer + " all the way up your butt?",
-    "You want to stuff it under a mattress like " + answer + ".",
-    "You " + answer + " Morty. Not very charismatic.",
-    "Look at that thing. It defies all logic. What is that thing? " + answer,
-    "How did Frank Policky die? " + answer,
-    "What do you think of this flying vehicle Morty? I made it out of " + answer + ".",
-    "I had to do it Morty. I made a " + answer + "."
-]
+var blackCards = {
+    answer: '___',
+}
+blackCards.cues = [
+    "Where do I find Dr. Bloom? " + blackCards.answer,
+    "You don't agree to have a " + blackCards.answer + " built inside you if your lifes going great.",
+    "No, Jacob is your mother's lover. I watch them. Almost always dressed as " + blackCards.answer + ".",
+    "Gonorrhea can't see us if we don't " + blackCards.answer + ".",
+    "Showtime extreme in a world where man evolved from " + blackCards.answer + ".",
+    "You think you can control me with a " + blackCards.answer + ".",
+    "Bobby Moynihan didn't get along with which SNL cast member? " + blackCards.answer,
+    "Welcome to your " + blackCards.answer +", bitch!",
+    "What were Snuffles first words? " + blackCards.answer,
+    "The guy teaches H.S. math. I didn't take him for a " + blackCards.answer + ".",
+    "They're just " + blackCards.answer + ", Morty.",
+    "It's a new machine. Detects " + blackCards.answer + " all the way up your butt.",
+    "Did you get those " + blackCards.answer + " all the way up your butt?",
+    "You want to stuff it under a mattress like " + blackCards.answer + ".",
+    "You " + blackCards.answer + " Morty. Not very charismatic.",
+    "Look at that thing. It defies all logic. What is that thing? " + blackCards.answer,
+    "How did Frank Policky die? " + blackCards.answer,
+    "What do you think of this flying vehicle Morty? I made it out of " + blackCards.answer + ".",
+    "I had to do it Morty. I made a " + blackCards.answer + "."
+    ]
 var answers = [
     "Nutrino bomb.",
     "Night time takes up half of all time.",
@@ -61,11 +63,11 @@ function shuffle(array) {
 //get random cue from blackCards array and input into the DOM
 function setBlack() {
     //select index
-    var cue = shuffle(blackCards)
+    var cue = shuffle(blackCards.cues)
     //display string in the DOM
     document.querySelector('.prompt').innerText = cue
     //remove index from array
-    blackCards.splice(blackCards.indexOf(cue), 1)
+    blackCards.cues.splice(blackCards.cues.indexOf(cue), 1)
 }
 
 setBlack()
@@ -126,15 +128,17 @@ var playerOneResponse = ''
 var playerTwoResponse = ''
 function pickOne() {
     if (game.currentPlayer === game.player1) {
+        console.log(playerOneResponse)
         $playerOneCards.parent().removeClass('hidden-cards')
         setTimeout(function() {
             $playerOneCards.parent().addClass('hidden-cards')
-        }, 4000)
+        }, 2000)
     } else {
+        console.log(playerTwoResponse)
         $playerTwoCards.parent().removeClass('hidden-cards')
         setTimeout(function() {
             $playerTwoCards.parent().addClass('hidden-cards')
-        }, 4000)
+        }, 2000)
     }
 }
 
@@ -143,10 +147,12 @@ var $submit = $('input').on('click', function() {
     if (game.currentPlayer === game.player1) {
         playerOneResponse = $(this).parent().text()
         $(this).parent().remove()
+        console.log('playerOneResonse: ' + playerOneResponse)
         switchTurns()
     } else {
         playerTwoResponse = $(this).parent().text()
         $(this).parent().remove()
+        console.log('playerTwoResponse: ' + playerTwoResponse)
         switchTurns()
     }
 })
@@ -155,17 +161,16 @@ var $submit = $('input').on('click', function() {
 $( 'div button:nth-child(2)' ).on('click', pickOne)
 
 //reveal player responses
-$('div button:nth-child(3)').on('click', function() {    
-    $('.response1').text("Player 1: " + playerOneResponse).fadeIn('slow')
-    $('.response2').text("Player 2: " + playerTwoResponse).fadeIn('slow')
+$('div button:nth-child(3)').on('click', function() {
+    blackCards.answer = playerOneResponse
+    console.log('answer: ' + blackCards.answer)
+    $('.prompt').fadeOut('slow')
+    var $cue = $('.prompt').text()
+    $('.prompt').fadeIn('slow')
 })
 
 //set new prompt in black card
-var $newCue = $('div button:nth-child(1)').on('click', function() {
-    setBlack()
-    $('.response1').fadeOut('slow')
-    $('.response2').fadeOut('slow')
-})
+var $newCue = $('div button:nth-child(1)').on('click', setBlack)
 
 //player points set to zero
 var points1 = 0
@@ -182,7 +187,14 @@ var $givePoint2 = $('div button:nth-child(5)').on('click', function() {
     $playerTwoPoints = $('#player-two-points').text('Blips and Chitz Tickets: ' + Number(points2 += 1))
 })
 
-//check winner 
-    //if player 2's tickets are equal to 5, find the winner
+//declare a winner
+
 
 //reset button
+var $reset = $('div button:nth-child(6)').on('click', function() {
+    location.reload()
+})
+    //reset blackCards array and setBlack
+    //deal new white cards
+    //empty points
+    //empty playerResponses
