@@ -128,13 +128,11 @@ var playerOneResponse = ''
 var playerTwoResponse = ''
 function pickOne() {
     if (game.currentPlayer === game.player1) {
-        console.log(playerOneResponse)
         $playerOneCards.parent().removeClass('hidden-cards')
         setTimeout(function() {
             $playerOneCards.parent().addClass('hidden-cards')
         }, 2000)
     } else {
-        console.log(playerTwoResponse)
         $playerTwoCards.parent().removeClass('hidden-cards')
         setTimeout(function() {
             $playerTwoCards.parent().addClass('hidden-cards')
@@ -147,12 +145,10 @@ var $submit = $('input').on('click', function() {
     if (game.currentPlayer === game.player1) {
         playerOneResponse = $(this).parent().text()
         $(this).parent().remove()
-        console.log('playerOneResonse: ' + playerOneResponse)
         switchTurns()
     } else {
         playerTwoResponse = $(this).parent().text()
         $(this).parent().remove()
-        console.log('playerTwoResponse: ' + playerTwoResponse)
         switchTurns()
     }
 })
