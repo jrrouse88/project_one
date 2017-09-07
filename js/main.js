@@ -1,4 +1,5 @@
 //create arrray of cue and response cards
+var nnSound = new Audio('noob.mp3')
 var blackCards = {
     answer: '___',
 }
@@ -131,12 +132,12 @@ function pickOne() {
         $playerOneCards.parent().removeClass('hidden-cards')
         setTimeout(function() {
             $playerOneCards.parent().addClass('hidden-cards')
-        }, 2000)
+        }, 6000)
     } else {
         $playerTwoCards.parent().removeClass('hidden-cards')
         setTimeout(function() {
             $playerTwoCards.parent().addClass('hidden-cards')
-        }, 2000)
+        }, 6000)
     }
 }
 
@@ -184,10 +185,13 @@ $playerTwoPoints = $('#player-two-points').text('Blitz and Chitz Tickets: ' + Nu
 function checkScore(points1, points2) {
     if(points1 === 5 || points2 === 5) {
         if(points1 > points2) {
+            nnSound.play()
             alert('Player One wins!')
         } else if(points1 < points2) {
+            nnSound.play()
             alert('Player Two wins!')
         } else {
+            nnSound.play()
             alert("Congrats. You're both equally unfunny.")
         }
     }
