@@ -158,14 +158,18 @@ $( 'div button:nth-child(2)' ).on('click', pickOne)
 
 //reveal player responses
 $('div button:nth-child(3)').on('click', function() {
-   var promptText = $('.prompt').text()
-   $('.response1').text(promptText.replace('___', playerOneResponse))
-   $('.response2').text(promptText.replace('___', playerTwoResponse))
+    $('.prompt').fadeOut('fast')
+    var promptText = $('.prompt').text()
+    $('hr').removeClass('hidden-cards')
+    $('.response1').text(promptText.replace('___', playerOneResponse))
+    $('.response2').text(promptText.replace('___', playerTwoResponse))
 })
 
 //set new prompt in black card
 var $newCue = $('div button:nth-child(1)').on('click', function() {
     setBlack()
+    $('.prompt').fadeIn('slow')
+    $('hr').addClass('hidden-cards')
     $('.response1').text('')
     $('.response2').text('')
 })
@@ -176,6 +180,13 @@ var points2 = 0
 $playerOnePoints = $('#player-one-points').text('Blitz and Chitz Tickets: ' + Number(points1))
 $playerTwoPoints = $('#player-two-points').text('Blitz and Chitz Tickets: ' + Number(points2))
 
+//declare a winner function
+function checkScore(points1, points2) {
+    if(points1 === 5 || points2 === 5) {
+
+    }
+}
+
 //allocate points
 var $givePoint1 = $('div button:nth-child(4)').on('click', function() {
     $playerOnePoints = $('#player-one-points').text('Blips and Chitz Tickets: ' + Number(points1 += 1))
@@ -184,21 +195,6 @@ var $givePoint1 = $('div button:nth-child(4)').on('click', function() {
 var $givePoint2 = $('div button:nth-child(5)').on('click', function() {
     $playerTwoPoints = $('#player-two-points').text('Blips and Chitz Tickets: ' + Number(points2 += 1))
 })
-
-//declare a winner
-    //if player two's tickets equal 5 then evaluate for a winner
-function callWinner() {
-    if (points2 == 5) {
-        if (points2 < points1) {
-            alert('Player One wins!') 
-            } else if (points2 > points1) {
-                alert('Player Two wins!')
-            } else {
-                alert("Congrats. You're both equally unfunny.")
-            }
-        }
-}
-callWinner()
 
 function initializeGame() {
     blackCards.answer = '___'
@@ -262,7 +258,49 @@ function initializeGame() {
     playerTwoResponse = ''
     $('.response1').text('')
     $('.response2').text('')
+    responses = []
+    $('#player-one-cards').children().remove()
+    $('#player-two-cards').children().remove()
     setBlack()
+    $('hr').addClass('hidden-cards')
+    $('.prompt').fadeIn('fast')
+
+    //create array of responses
+    var responses = []
+    for (var i = 0; i < 10; i += 1) {
+    //select random index
+    responses.push(shuffle(answers))
+    //remove index from the array
+    answers.splice(answers.indexOf(responses[i]), 1)
+    }
+
+    //splice responses in half and distribute to both players
+    var $playerOneCards = $('#player-one-cards')
+    var $playerTwoCards = $('#player-two-cards')
+
+    //first half of responses goes to player one
+    var cards1 = responses.splice(0, 5)
+
+    //loop through and create list items for each answer with input
+    cards1.forEach(function(i) {
+        var $answer = $('<li>')
+        var $sendIt = $('<input>').attr('type', 'checkbox')
+        $answer.text(i)
+        $playerOneCards.append($answer)
+        $answer.prepend($sendIt)  
+    })
+
+    //leftover responses go to player two
+    var cards2 = responses
+
+    //loop through and create list items for each answer with input
+    cards2.forEach(function(i) {
+        var $answer = $('<li>')
+        var $sendIt = $('<input>').attr('type', 'checkbox')
+        $answer.text(i)
+        $playerTwoCards.append($answer)
+        $answer.prepend($sendIt)  
+    })
 }
 
 
