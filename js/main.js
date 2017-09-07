@@ -1,4 +1,70 @@
 //create arrray of cue and response cards
+function initializeGame() {
+    var blackCards = {
+        answer: '___',
+    }
+    blackCards.cues = [
+        "Where do I find Dr. Bloom? " + blackCards.answer,
+        "You don't agree to have a " + blackCards.answer + " built inside you if your lifes going great.",
+        "No, Jacob is your mother's lover. I watch them. Almost always dressed as " + blackCards.answer + ".",
+        "Gonorrhea can't see us if we don't " + blackCards.answer + ".",
+        "Showtime extreme in a world where man evolved from " + blackCards.answer + ".",
+        "You think you can control me with a " + blackCards.answer + ".",
+        "Bobby Moynihan didn't get along with which SNL cast member? " + blackCards.answer,
+        "Welcome to your " + blackCards.answer +", bitch!",
+        "What were Snuffles first words? " + blackCards.answer,
+        "The guy teaches H.S. math. I didn't take him for a " + blackCards.answer + ".",
+        "They're just " + blackCards.answer + ", Morty.",
+        "It's a new machine. Detects " + blackCards.answer + " all the way up your butt.",
+        "Did you get those " + blackCards.answer + " all the way up your butt?",
+        "You want to stuff it under a mattress like " + blackCards.answer + ".",
+        "You " + blackCards.answer + " Morty. Not very charismatic.",
+        "Look at that thing. It defies all logic. What is that thing? " + blackCards.answer,
+        "How did Frank Policky die? " + blackCards.answer,
+        "What do you think of this flying vehicle Morty? I made it out of " + blackCards.answer + ".",
+        "I had to do it Morty. I made a " + blackCards.answer + "."
+        ]
+    var answers = [
+        "Nutrino bomb",
+        "Night time takes up half of all time",
+        "My little Morties",
+        "Holy Crap! Morty, run!",
+        "Principal Vagina. No relation",
+        "You're like Hitler, but even Hitler cared about Germany or something",
+        "Interdimensional Portal Device",
+        "Take these seeds and put them waaaaaay up in your butthole",
+        "Taut anal cavity",
+        "Flim flam",
+        "Albert Eindouche",
+        "Megaseeds dissolving in your anal cavity",
+        "It's a lot like inception, except it'll make sense",
+        "Tiny RIIIIIIIIICK!!!",
+        "Pickle Riiiiiiiiiiick!!!",
+        "Scary Terry, the legally safe knock of of an 80s horror character",
+        "Garmanarnar",
+        "Schezuan sauce",
+        "Caaaaaan do",
+        "I'm Mr Meseeks, look at me",
+        "An amusement park inside a human body",
+        "Pirates of the Pancreas",
+        "The Sphincter Dam",
+        "People on the internet who are only turned on by cartoons of japanese teenagers",
+        "Interdimensional cable",
+        "A stuffed teddy bear that poops spider webs",
+        "A sex robot",
+        "A mexican space armada with weapons made from tomatoes",
+    ]
+
+    var points1 = 0
+    var points2 = 0
+    $playerOnePoints = $('#player-one-points').text('Blitz and Chitz Tickets: ' + Number(points1))
+    $playerTwoPoints = $('#player-two-points').text('Blitz and Chitz Tickets: ' + Number(points2))
+    playerOneResponse = ''
+    playerTwoResponse = ''
+    $('response1').text('')
+    $('response2').text('')
+}
+
 var blackCards = {
     answer: '___',
 }
@@ -182,12 +248,10 @@ var $givePoint2 = $('div button:nth-child(5)').on('click', function() {
 })
 
 //declare a winner
-
+    //if player two tickets equal 5 then evaluate for a winner
 
 //reset button
-var $reset = $('div button:nth-child(6)').on('click', function() {
-    location.reload()
-})
+var $reset = $('div button:nth-child(6)').on('click', initializeGame)
     //reset blackCards array and setBlack
     //deal new white cards
     //empty points
