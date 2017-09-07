@@ -61,8 +61,9 @@ function initializeGame() {
     $playerTwoPoints = $('#player-two-points').text('Blitz and Chitz Tickets: ' + Number(points2))
     playerOneResponse = ''
     playerTwoResponse = ''
-    $('response1').text('')
-    $('response2').text('')
+    $('.response1').text('')
+    $('.response2').text('')
+    setBlack()
 }
 
 var blackCards = {
@@ -230,7 +231,11 @@ $('div button:nth-child(3)').on('click', function() {
 })
 
 //set new prompt in black card
-var $newCue = $('div button:nth-child(1)').on('click', setBlack)
+var $newCue = $('div button:nth-child(1)').on('click', function() {
+    setBlack()
+    $('.response1').text('')
+    $('.response2').text('')
+})
 
 //player points set to zero
 var points1 = 0
