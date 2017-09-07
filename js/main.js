@@ -183,17 +183,25 @@ $playerTwoPoints = $('#player-two-points').text('Blitz and Chitz Tickets: ' + Nu
 //declare a winner function
 function checkScore(points1, points2) {
     if(points1 === 5 || points2 === 5) {
-
+        if(points1 > points2) {
+            alert('Player One wins!')
+        } else if(points1 < points2) {
+            alert('Player Two wins!')
+        } else {
+            alert("Congrats. You're both equally unfunny.")
+        }
     }
 }
 
 //allocate points
 var $givePoint1 = $('div button:nth-child(4)').on('click', function() {
     $playerOnePoints = $('#player-one-points').text('Blips and Chitz Tickets: ' + Number(points1 += 1))
+    checkScore(points1, points2)
 })
 
 var $givePoint2 = $('div button:nth-child(5)').on('click', function() {
     $playerTwoPoints = $('#player-two-points').text('Blips and Chitz Tickets: ' + Number(points2 += 1))
+    checkScore(points1, points2)
 })
 
 function initializeGame() {
