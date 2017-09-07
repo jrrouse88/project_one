@@ -24,34 +24,34 @@ blackCards.cues = [
     "I had to do it Morty. I made a " + blackCards.answer + "."
     ]
 var answers = [
-    "Nutrino bomb.",
-    "Night time takes up half of all time.",
-    "My little Morties.",
+    "Nutrino bomb",
+    "Night time takes up half of all time",
+    "My little Morties",
     "Holy Crap! Morty, run!",
-    "Principal Vagina. No relation.",
-    "You're like Hitler, but even Hitler cared about Germany or something.",
-    "Interdimensional Portal Device.",
-    "Take these seeds and put them waaaaaay up in your butthole.",
-    "Taut anal cavity.",
-    "Flim flam.",
-    "Albert Eindouche.",
-    "Megaseeds dissolving in your anal cavity.",
-    "It's a lot like inception, except it'll make sense.",
+    "Principal Vagina. No relation",
+    "You're like Hitler, but even Hitler cared about Germany or something",
+    "Interdimensional Portal Device",
+    "Take these seeds and put them waaaaaay up in your butthole",
+    "Taut anal cavity",
+    "Flim flam",
+    "Albert Eindouche",
+    "Megaseeds dissolving in your anal cavity",
+    "It's a lot like inception, except it'll make sense",
     "Tiny RIIIIIIIIICK!!!",
     "Pickle Riiiiiiiiiiick!!!",
-    "Scary Terry, the legally safe knock of of an 80s horror character.",
-    "Garmanarnar.",
-    "Schezuan sauce.",
-    "Caaaaaan do.",
-    "I'm Mr. Meseeks, look at me.",
-    "An amusement park inside a human body.",
-    "Pirates of the Pancreas.",
-    "The Sphincter Dam.",
-    "People on the internet who are only turned on by cartoons of japanese teenagers.",
-    "Interdimensional cable.",
-    "A stuffed teddy bear that poops spider webs.",
-    "A sex robot.",
-    "A mexican space armada with weapons made from tomatoes.",
+    "Scary Terry, the legally safe knock of of an 80s horror character",
+    "Garmanarnar",
+    "Schezuan sauce",
+    "Caaaaaan do",
+    "I'm Mr Meseeks, look at me",
+    "An amusement park inside a human body",
+    "Pirates of the Pancreas",
+    "The Sphincter Dam",
+    "People on the internet who are only turned on by cartoons of japanese teenagers",
+    "Interdimensional cable",
+    "A stuffed teddy bear that poops spider webs",
+    "A sex robot",
+    "A mexican space armada with weapons made from tomatoes",
 ]
 
 //select random index number to display in black card prompt
@@ -162,11 +162,9 @@ $( 'div button:nth-child(2)' ).on('click', pickOne)
 
 //reveal player responses
 $('div button:nth-child(3)').on('click', function() {
-    blackCards.answer = playerOneResponse
-    console.log('answer: ' + blackCards.answer)
-    $('.prompt').fadeOut('slow')
-    var $cue = $('.prompt').text()
-    $('.prompt').fadeIn('slow')
+   var promptText = $('.prompt').text()
+   $('.response1').text(promptText.replace('___', playerOneResponse))
+   $('.response2').text(promptText.replace('___', playerTwoResponse))
 })
 
 //set new prompt in black card
