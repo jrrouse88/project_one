@@ -2,6 +2,11 @@
     list-style: none;
 }
 
+@font-face {
+    font-family: Gooey;
+    src: url('../fonts/gooey.ttf');
+}
+
 #container {
     max-width: 950px;
     max-height: 600px;
@@ -11,7 +16,9 @@
 #buttons {
     display: flex;
     justify-content: space-around;
-    margin: 20px 0;
+    background: black;
+    margin: 0;
+    padding: 20px;
 }
 
 #board-container {
@@ -22,6 +29,7 @@
 #left {
     height: 600px;
     width: 300px;
+    border: solid 3px black;
 }
 
 #middle {
@@ -29,18 +37,42 @@
     color: white;
     height: 600px;
     width: 300px;
+    flex-grow: 2;
+    border: solid 3px black;
 }
 
 #right {
     height: 600px;
     width: 300px;
+    border: solid 3px black;
 }
 
 h1, h2 {
     text-align: center;
     margin: 0;
+    font-family: 'Reenie Beanie', cursive;
 }
 
 .hidden-cards {
     display: none;
+}
+
+button {
+    background: #08CCCC;
+    border: none;
+    border-radius: 3px;
+    height: 30px;
+    width: 150px;
+    color: white;
+    font-family: 'Reenie Beanie', cursive;
+    font-size: 18px;
+}
+
+header h1 {
+    font-family: Gooey, sans-serif;
+    font-size: 72px;
+    color: #08CCCC;
+    letter-spacing: 3px;
+    -webkit-text-stroke: 1px black;
+    text-shadow: 3px 3px 5px #BEFF17;
 }
