@@ -2,6 +2,10 @@
     list-style: none;
 }
 
+body {
+    background: black;
+}
+
 @font-face {
     font-family: Gooey;
     src: url('../fonts/gooey.ttf');
@@ -16,7 +20,6 @@
 #buttons {
     display: flex;
     justify-content: space-around;
-    background: black;
     margin: 0;
     padding: 20px;
 }
@@ -30,6 +33,7 @@
     height: 600px;
     width: 300px;
     border: solid 3px black;
+    background: white;
 }
 
 #middle {
@@ -45,6 +49,7 @@
     height: 600px;
     width: 300px;
     border: solid 3px black;
+    background: white;
 }
 
 h1, h2 {
@@ -67,14 +72,20 @@ input[type = 'checkbox'] {
 }
 
 button {
-    background: #08CCCC;
+    background: none;
     border: none;
-    border-radius: 3px;
+    outline: none;
     height: 30px;
     width: 150px;
     color: white;
     font-family: 'Reenie Beanie', cursive;
-    font-size: 18px;
+    font-size: 22px;
+}
+
+button:hover {
+    transform: rotate(8deg);
+    text-decoration: underline;
+    text-shadow: 1px 1px #BEFF17; 
 }
 
 header h1 {
@@ -84,4 +95,10 @@ header h1 {
     letter-spacing: 3px;
     -webkit-text-stroke: 1px black;
     text-shadow: 3px 3px 5px #BEFF17;
+}
+
+section {
+    font-family: 'Share Tech Mono', monospace;   
+    text-align: center;
+    font-size: 26px; 
 }
