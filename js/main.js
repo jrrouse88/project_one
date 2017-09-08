@@ -22,7 +22,14 @@ blackCards.cues = [
     "Look at that thing. It defies all logic. What is that thing? " + blackCards.answer,
     "How did Frank Policky die? " + blackCards.answer,
     "What do you think of this flying vehicle Morty? I made it out of " + blackCards.answer + ".",
-    "I had to do it Morty. I made a " + blackCards.answer + "."
+    "I had to do it Morty. I made a " + blackCards.answer + ".",
+    "I'll buy those boobies for " + blackCards.answer + ".",
+    "And that's the waaaaaay the " + blackCards.answer + " goes.",
+    "I throw balls far. You want words, date a " + blackCards.answer + ".",
+    "Break the cycle Morty. Rise above. Focus on " + blackCards.answer + ".",
+    "We're both insecure enough to agree to a " + blackCards.answer + ".",
+    "It might eat brains and exhale " + blackCards.answer + " for all you know.",
+    "I'm the devil, what should I do if I fail? Go get " + blackCards.answer + "."
     ]
 var answers = [
     "Nutrino bomb",
@@ -53,6 +60,19 @@ var answers = [
     "A stuffed teddy bear that poops spider webs",
     "A sex robot",
     "A mexican space armada with weapons made from tomatoes",
+    "Slippery stair",
+    "Rapey jellybean",
+    "Shmeckles",
+    "Wubba Lubba Dub Duuuuuuub!!!!",
+    "Shonies",
+    "Herpy Herpson High School",
+    "Preying Mantis insect people",
+    "Cronenburg Morty",
+    "Roofie juice serum",
+    "Space AIDS",
+    "Beauty cream that makes ugly women beautiful, but also makes the blind",
+    "King Flippy Nips",
+    "Beating the shit out of leash yanking dog owners and spitting on them"
 ]
 
 //select random index number to display in black card prompt
