@@ -112,8 +112,14 @@ section {
     width: 500px;
     height: 300px;
     position: absolute;
-    right: 230px;
+    right: 32%;
     top: 300px;
-    z-index: 1;
     font-size: 68px;
+    letter-spacing: 3px;
+}
+
+img {
+    display: inline-block;
+    position: relative;
+    bottom: 175px;
 }
