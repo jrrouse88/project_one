@@ -153,13 +153,13 @@ function pickOne() {
         $playerOneCards.parent().removeClass('hidden-cards')
         setTimeout(function() {
             $playerOneCards.parent().addClass('hidden-cards')
-        }, 2000)
+        }, 7000)
     } else {
         console.log(playerTwoResponse)
         $playerTwoCards.parent().removeClass('hidden-cards')
         setTimeout(function() {
             $playerTwoCards.parent().addClass('hidden-cards')
-        }, 2000)
+        }, 7000)
     }
 }
 
