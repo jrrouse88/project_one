@@ -15,9 +15,13 @@ Welcome to the universe of the infinite Rick! Test your squanch! Choose your res
 5. Set up a new black card and repeat 1-4.
 6. First to 5 wins!
 
+<<<<<<< HEAD
 
 ---
 
+=======
+ ---
+>>>>>>> a343dcffde2bb3405458d10ba22fd4950349f684
 
 ### Technologies Used
 
@@ -26,9 +30,13 @@ Welcome to the universe of the infinite Rick! Test your squanch! Choose your res
 - Javascript
 - jQuery
 
+<<<<<<< HEAD
 
 ---
 
+=======
+---
+>>>>>>> a343dcffde2bb3405458d10ba22fd4950349f684
 
 ### User Stories
 
@@ -37,9 +45,13 @@ Welcome to the universe of the infinite Rick! Test your squanch! Choose your res
 - As a player, I can earn a point when my response is funnier.
 - As a player who lost, I WANT A REMATCH!
 
+<<<<<<< HEAD
 
 ---
 
+=======
+---
+>>>>>>> a343dcffde2bb3405458d10ba22fd4950349f684
 
 ### #Goals
 - Add more players to the game.
