@@ -16,7 +16,7 @@ Welcome to the universe of the infinite Rick! Test your squanch! Choose your res
 6. First to 5 wins!
 
 
---
+---
 
 
 ### Technologies Used
@@ -27,7 +27,7 @@ Welcome to the universe of the infinite Rick! Test your squanch! Choose your res
 - jQuery
 
 
---
+---
 
 
 ### User Stories
@@ -38,7 +38,7 @@ Welcome to the universe of the infinite Rick! Test your squanch! Choose your res
 - As a player who lost, I WANT A REMATCH!
 
 
---
+---
 
 
 ### #Goals

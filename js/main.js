@@ -75,7 +75,7 @@ setBlack()
 
 //create array of responses
 var responses = []
-for (var i = 0; i < 10; i += 1) {
+for (var i = 0; i < 20; i += 1) {
     //select random index
     responses.push(shuffle(answers))
     //remove index from the array
@@ -87,7 +87,7 @@ var $playerOneCards = $('#player-one-cards')
 var $playerTwoCards = $('#player-two-cards')
 
 //first half of responses goes to player one
-var cards1 = responses.splice(0, 5)
+var cards1 = responses.splice(0, 10)
 
 //loop through and create list items for each answer with input
 cards1.forEach(function(i) {
@@ -132,12 +132,12 @@ function pickOne() {
         $playerOneCards.parent().removeClass('hidden-cards')
         setTimeout(function() {
             $playerOneCards.parent().addClass('hidden-cards')
-        }, 6000)
+        }, 7000)
     } else {
         $playerTwoCards.parent().removeClass('hidden-cards')
         setTimeout(function() {
             $playerTwoCards.parent().addClass('hidden-cards')
-        }, 6000)
+        }, 7000)
     }
 }
 
@@ -279,7 +279,7 @@ function initializeGame() {
 
     //create array of responses
     var responses = []
-    for (var i = 0; i < 10; i += 1) {
+    for (var i = 0; i < 20; i += 1) {
     //select random index
     responses.push(shuffle(answers))
     //remove index from the array
@@ -291,7 +291,7 @@ function initializeGame() {
     var $playerTwoCards = $('#player-two-cards')
 
     //first half of responses goes to player one
-    var cards1 = responses.splice(0, 5)
+    var cards1 = responses.splice(0, 10)
 
     //loop through and create list items for each answer with input
     cards1.forEach(function(i) {
