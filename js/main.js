@@ -210,10 +210,18 @@ function checkScore(points1, points2) {
     if(points1 === 5 || points2 === 5) {
         if(points1 > points2) {
             nnSound.play()
-            alert('Player One wins!')
+            var $declare = $('<h1>')
+            $declare.text('Player One Wins!')
+            $('.winner').append($declare)
+            $('.winner').removeClass('hidden-cards')
+            //alert('Player One wins!')
         } else if(points1 < points2) {
             nnSound.play()
-            alert('Player Two wins!')
+            var $declare = $('<h1>')
+            $declare.text('Player One Wins!')
+            $('.winner').append($declare)
+            $('.winner').removeClass('hidden-cards')
+            //alert('Player Two wins!')
         } else {
             nnSound.play()
             alert("Congrats. You're both equally unfunny.")
