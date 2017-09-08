@@ -218,7 +218,7 @@ function checkScore(points1, points2) {
         } else if(points1 < points2) {
             nnSound.play()
             var $declare = $('<h1>')
-            $declare.text('Player One Wins!')
+            $declare.text('Player Two Wins!')
             $('.winner').append($declare)
             $('.winner').removeClass('hidden-cards')
             //alert('Player Two wins!')
@@ -308,7 +308,8 @@ function initializeGame() {
     setBlack()
     $('hr').addClass('hidden-cards')
     $('.prompt').fadeIn('fast')
-    $('.winner')addClass('hidden-cards')
+    $('.winner').addClass('hidden-cards')
+    $('.winner').text('')
 
     //create array of responses
     var responses = []
