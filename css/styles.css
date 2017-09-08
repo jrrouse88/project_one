@@ -109,8 +109,11 @@ section {
 
 .winner {
     background: #08CCCC;
-    position: relative;
+    width: 500px;
+    height: 300px;
+    position: absolute;
     right: 230px;
-    top: 100px;
-    z-index: 0;
+    top: 300px;
+    z-index: 1;
+    font-size: 68px;
 }
