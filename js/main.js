@@ -308,6 +308,7 @@ function initializeGame() {
     setBlack()
     $('hr').addClass('hidden-cards')
     $('.prompt').fadeIn('fast')
+    $('.winner')addClass('hidden-cards')
 
     //create array of responses
     var responses = []
