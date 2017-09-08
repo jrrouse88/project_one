@@ -221,8 +221,11 @@ function checkScore(points1, points2) {
         } else if(points1 < points2) {
             nnSound.play()
             var $declare = $('<h1>')
-            $declare.text('Player Two Wins!')
+            var $rick = $('<img>')
+            $rick.attr('src', 'rick.png')
+            $declare.text('Player One Wins!')
             $('.winner').append($declare)
+            $('.winner').append($rick)
             $('.winner').removeClass('hidden-cards')
             //alert('Player Two wins!')
         } else {
