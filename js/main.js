@@ -1,5 +1,6 @@
-//create arrray of cue and response cards
+// create the sound of victory
 var nnSound = new Audio('noob.mp3')
+//create arrray of cue and response cards
 var blackCards = {
     answer: '___',
 }
@@ -360,7 +361,3 @@ function initializeGame() {
 var $reset = $('div button:nth-child(6)').on('click', function() {
     initializeGame()
 })
-    //reset blackCards array and setBlack
-    //deal new white cards
-    //empty points
-    //empty playerResponses
